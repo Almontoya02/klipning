@@ -18,6 +18,7 @@ class _RegisterPageState extends State<RegisterPage> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        brightness: Brightness.light,
         elevation: 0.0,
         actionsIconTheme: IconThemeData(
           color:Colors.black,

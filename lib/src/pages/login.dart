@@ -18,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        color: Color.fromRGBO(252, 252, 252, 1.0),
+        color: Color.fromRGBO(241, 238, 238, 1.0),
         child: ListView(
           children: <Widget>[
             Column(
@@ -96,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: (){
                 Navigator.pushNamed(context, 'home');
               }, 
-              color: Colors.white,
+              color: Color.fromRGBO(241, 238, 238, 1.0),
               child: Container(padding:EdgeInsets.symmetric(horizontal: 28.0, vertical: 15.0),child: Text('Iniciar Sesión', style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),)),
               shape: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0), borderSide: BorderSide(width: 3.0)),
               elevation: 0.0,
@@ -151,7 +151,6 @@ class _LoginPageState extends State<LoginPage> {
             ),  
           labelText: 'Correo:',
           prefixIcon: Icon(Icons.email, color: mainColor,size: 30.0,),
-
           ),
         ),
         SizedBox(height: 15.0,),
