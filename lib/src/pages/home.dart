@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   _bottomNavigatorBar(BuildContext context) {
+      final sizeP = MediaQuery.of(context).size;
       return new Theme(
       data: Theme.of(context).copyWith(
         canvasColor: Colors.white,
@@ -52,20 +53,20 @@ class _HomePageState extends State<HomePage> {
             type: BottomNavigationBarType.fixed,
             items: [
               BottomNavigationBarItem(
-                icon: currentIndex==0 ?  _cupertinoIcon(0xf448): _cupertinoIcon(0xf447),
-                title: Text('Inicio')
+                icon: currentIndex==0 ?  _cupertinoIcon(0xf448,sizeP.width *0.06125): _cupertinoIcon(0xf447,sizeP.width *0.06125),
+                title: Text('Inicio',style: TextStyle(fontSize: sizeP.width *0.03675))
               ),
               BottomNavigationBarItem(
-                icon: currentIndex==1 ?  _cupertinoIcon(0xF443): _cupertinoIcon(0xF442),
-                title: Text('Favoritos')
+                icon: currentIndex==1 ?  _cupertinoIcon(0xF443,sizeP.width *0.06125): _cupertinoIcon(0xF442,sizeP.width *0.06125),
+                title: Text('Favoritos',style: TextStyle(fontSize: sizeP.width *0.03675))
               ),
               BottomNavigationBarItem(
-                icon: currentIndex==2 ?  _cupertinoIcon(0xF3F4): _cupertinoIcon(0xF3F3),
-                title: Text('Reservas')
+                icon: currentIndex==2 ?  _cupertinoIcon(0xF3F4,sizeP.width *0.06125): _cupertinoIcon(0xF3F3,sizeP.width *0.06125),
+                title: Text('Reservas', style: TextStyle(fontSize: sizeP.width *0.03675),)
               ),
               BottomNavigationBarItem(
-                icon: currentIndex==3 ?  _cupertinoIcon(0xF41A): _cupertinoIcon(0xF419),
-                title: Text('Mi cuenta')
+                icon: currentIndex==3 ?  _cupertinoIcon(0xF41A,sizeP.width *0.06125): _cupertinoIcon(0xF419,sizeP.width *0.06125),
+                title: Text('Mi cuenta',style: TextStyle(fontSize: sizeP.width *0.03675))
               ),
             ]
           ),
@@ -74,11 +75,11 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _cupertinoIcon(int codigo){
+  Widget _cupertinoIcon(int codigo, double size){
      IconData icon =  IconData(codigo,
               fontFamily: CupertinoIcons.iconFont,
               fontPackage: CupertinoIcons.iconFontPackage);
-    return Icon(icon);
+    return Icon(icon,size: size);
   }
 
   Widget _callPage(int paginaActual) {

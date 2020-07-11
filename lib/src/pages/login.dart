@@ -14,10 +14,10 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final sizeP = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
-        height: double.infinity,
-        width: double.infinity,
+
         color: Color.fromRGBO(241, 238, 238, 1.0),
         child: ListView(
           children: <Widget>[
@@ -25,9 +25,9 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 _logo(),
-                SizedBox(height: 40.0,),
+                SizedBox(height: sizeP.width * 0.0735,),
                 _writes(),
-                SizedBox(height:10.0),
+                SizedBox(height:sizeP.width * 0.0245),
                 _form(),
                 SizedBox(),
                 _buttons()
@@ -40,20 +40,23 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _logo() {
-
+    final sizeP = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.only(top:50.0),
+      margin: EdgeInsets.only(top:sizeP.width * 0.1),
       child: Column(
         children: <Widget>[
           Image(
-            image: AssetImage('assets/logo.png')
+            image: AssetImage('assets/logo.png'),
+            width: sizeP.width * 0.3675,
+            height: sizeP.width * 0.3675,
+            fit: BoxFit.contain,
           ),
-          SizedBox(height: 10.0,),
+          SizedBox(height: sizeP.width * 0.0245,),
           Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('KLIP', style: TextStyle(fontSize: 36.0,fontWeight: FontWeight.bold),),
-            Text('NING', style: TextStyle(fontSize: 36.0,fontWeight: FontWeight.bold, color: mainColor,)),
+            Text('KLIP', style: TextStyle(fontSize: sizeP.width * 0.0882,fontWeight: FontWeight.bold),),
+            Text('NING', style: TextStyle(fontSize: sizeP.width * 0.0882,fontWeight: FontWeight.bold, color: mainColor,)),
           ],
         ),
         ],
@@ -63,21 +66,21 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _writes() {
-    
+    final sizeP = MediaQuery.of(context).size;
     return Column(
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                SizedBox(width: 40.0,),
-                Text('Bienvenido', style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),),
+                SizedBox(width: sizeP.width * 0.098,),
+                Text('Bienvenido', style: TextStyle(fontSize: sizeP.width * 0.0588, fontWeight: FontWeight.bold),),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                SizedBox(width: 40.0,),
-                Text('Inicia sesión en una cuenta existente\no crea una cuenta nueva', style: TextStyle(fontSize: 14.0, color: Color.fromRGBO(36, 48, 60, 0.5))),
+                SizedBox(width: sizeP.width * 0.098,),
+                Text('Inicia sesión en una cuenta existente\no crea una cuenta nueva', style: TextStyle(fontSize: sizeP.width * 0.0343, color: Color.fromRGBO(36, 48, 60, 0.5))),
               ],
             ),
             
@@ -87,9 +90,9 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _buttons() {
-    
+    final sizeP = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.only(top:10.0),
+      margin: EdgeInsets.only(top:sizeP.width * 0.02),
       child: Column(
         children: <Widget>[
             RaisedButton(
@@ -97,23 +100,24 @@ class _LoginPageState extends State<LoginPage> {
                 Navigator.pushNamed(context, 'home');
               }, 
               color: Color.fromRGBO(241, 238, 238, 1.0),
-              child: Container(padding:EdgeInsets.symmetric(horizontal: 28.0, vertical: 15.0),child: Text('Iniciar Sesión', style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),)),
-              shape: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0), borderSide: BorderSide(width: 3.0)),
+              child: Container(padding:EdgeInsets.symmetric(horizontal: sizeP.width * 0.0686, vertical: sizeP.width * 0.03675),child: Text('Iniciar Sesión', style: TextStyle(fontSize: sizeP.width * 0.03675,fontWeight: FontWeight.bold),)),
+              shape: OutlineInputBorder(borderRadius: BorderRadius.circular(sizeP.width * 0.0245), borderSide: BorderSide(width: sizeP.width * 0.00735)),
               elevation: 0.0,
               
             ),
-            SizedBox(height: 20.0,),
+            SizedBox(height: sizeP.width * 0.049,),
             RaisedButton(
               onPressed: (){
                 Navigator.pushNamed(context, 'registro');
               }, 
               color: Color.fromRGBO(36, 48, 60, 1.0),
               textColor: Colors.white,
-              child: Container(padding:EdgeInsets.symmetric(horizontal: 35.0, vertical: 15.0),child: Text('Registrarse', style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),)),
-              shape: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0), borderSide: BorderSide(width: 3.0, color: Color.fromRGBO(36, 48, 60, 1.0))),
+              child: Container(padding:EdgeInsets.symmetric(horizontal: sizeP.width * 0.0686, vertical: sizeP.width * 0.03675),child: Text('Registrarse', style: TextStyle(fontSize: sizeP.width * 0.03675,fontWeight: FontWeight.bold),)),
+              shape: OutlineInputBorder(borderRadius: BorderRadius.circular(sizeP.width * 0.0245), borderSide: BorderSide(width: sizeP.width * 0.00735, color: Color.fromRGBO(36, 48, 60, 1.0))),
               elevation: 0.0,
               
           ),
+          SizedBox(height: sizeP.width * 0.1,)
 
 
         ],
@@ -123,75 +127,86 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _form() {
-
-    return Container(
-      padding: EdgeInsets.all(30.0),
+  final sizeP = MediaQuery.of(context).size;
+    return Container(      
+      padding: EdgeInsets.all(sizeP.width * 0.0735),
       child: Column(
         children: <Widget>[
-        TextField(
-          style:_textStyle,
-          cursorColor: Colors.black,
-          keyboardType: TextInputType.emailAddress,
-          decoration: InputDecoration(
-            hintStyle: _textStyle,
-            labelStyle: TextStyle(color: Color.fromRGBO(36, 48, 60, 0.5)),
-            fillColor: Colors.black,
-            focusColor: Colors.black,
-            hoverColor: Colors.black,
+        Container(
+          height: sizeP.width * 0.14,
+          child: TextField(
+            style:_textStyle,
+            cursorColor: Colors.black,
+            keyboardType: TextInputType.emailAddress,
             
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30.0),
-              borderSide: BorderSide(
-                width: 3.0,
-                color: Colors.black,
-              ),
+            decoration: InputDecoration(
               
+              hintStyle: _textStyle,
+              labelStyle: TextStyle(color: Color.fromRGBO(36, 48, 60, 0.5), fontSize: sizeP.width * 0.0392),
+              fillColor: Colors.black,
+              focusColor: Colors.black,
+              hoverColor: Colors.black,
               
-              
-            ),  
-          labelText: 'Correo:',
-          prefixIcon: Icon(Icons.email, color: mainColor,size: 30.0,),
-          ),
-        ),
-        SizedBox(height: 15.0,),
-        TextField(
-          style:_textStyle,
-          obscureText: _obscureText,
-          cursorColor: Colors.black,
-          decoration: InputDecoration(
-          hintStyle: _textStyle,
-          labelStyle: TextStyle(color: Color.fromRGBO(36, 48, 60, 0.5)),
-          fillColor: Colors.black,
-          hoverColor: Colors.black,
-          focusColor: Colors.black,
-          enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30.0),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(sizeP.width * 0.0735),
                 borderSide: BorderSide(
+                  width: sizeP.width * 0.00735,
                   color: Colors.black,
-                  width: 3.0
                 ),
-              ),
-          labelText: 'Contraseña:',
-          suffixIcon: GestureDetector(
-              dragStartBehavior: DragStartBehavior.down,
-              onTap: (){
-                setState(() {
-                  _obscureText = !_obscureText;
-                });
-              },
-              child: Icon(
-                _obscureText ? Icons.visibility : Icons.visibility_off,
-                color: Colors.black,),
-              ),
-            prefixIcon: Icon(Icons.lock_open, color: mainColor, size: 30.0,),
+                
+                
+                
+              ),  
+            labelText: 'Correo:',
+            prefixIcon: Icon(Icons.email, color: mainColor,size: sizeP.width * 0.05),
+            ),
           ),
         ),
-        SizedBox(height: 10.0),
+        SizedBox(height: sizeP.width * 0.03675,),
+        Container(
+          height: sizeP.width * 0.14,
+          child: TextField(
+            
+            style:_textStyle,
+            obscureText: _obscureText,
+            cursorColor: Colors.black,
+            decoration: InputDecoration(
+            hintStyle: _textStyle,
+            labelStyle: TextStyle(color: Color.fromRGBO(36, 48, 60, 0.5), fontSize: sizeP.width * 0.0392),
+            fillColor: Colors.black,
+            hoverColor: Colors.black,
+            focusColor: Colors.black,
+            enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(sizeP.width * 0.0735),
+                  borderSide: BorderSide(
+                    color: Colors.black,
+                    width:sizeP.width * 0.00735
+                  ),
+                ),
+            labelText: 'Contraseña:',
+            suffixIcon: GestureDetector(
+                dragStartBehavior: DragStartBehavior.down,
+                onTap: (){
+                  setState(() {
+                    _obscureText = !_obscureText;
+                  });
+                },
+                child: Icon(
+                  _obscureText ? Icons.visibility : Icons.visibility_off,
+                  color: Colors.black,
+                  size: sizeP.width * 0.05,
+                  ),
+                ),
+              prefixIcon: Icon(Icons.lock_open, color: mainColor, size: sizeP.width * 0.05,),
+            ),
+          ),
+        ),
+        SizedBox(height: sizeP.width * 0.0245),
         Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               
-              Text('¿Se te olvidó tu contraseña?', style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),),
+              Text('¿Se te olvidó tu contraseña?', style: TextStyle(fontSize: sizeP.width * 0.0294, fontWeight: FontWeight.bold),),
               SizedBox(width: 0.0,),
             ],
           ),

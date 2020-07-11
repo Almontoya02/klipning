@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class InicioPage extends StatelessWidget {
+  //final sizeP = MediaQuery.of(context).size;
+  //sizeP.width * 0.049 = 20
+
   @override
   Widget build(BuildContext context) {
+    final sizeP = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
         height: double.infinity,
@@ -15,18 +19,18 @@ class InicioPage extends StatelessWidget {
               children: <Widget>[
                 SafeArea(
                   child: Container(
-                    padding: EdgeInsets.only(top:40.0,left:35.0),
+                    padding: EdgeInsets.only(top:sizeP.width * 0.07,left:sizeP.width * 0.08575),
                     child:Row(
                       children: <Widget>[
-                        Text('Hola! ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),),
-                        Text('Elías', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0,color:Color.fromRGBO(209, 141, 96, 1.0))) // nombre usuario
+                        Text('Hola! ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: sizeP.width *0.061),),
+                        Text('Elías', style: TextStyle(fontWeight: FontWeight.bold, fontSize: sizeP.width *0.061,color:Color.fromRGBO(209, 141, 96, 1.0))) // nombre usuario
                       ],
                     )
                   ),
                 ),
-                SizedBox(height: 20.0,),
-                _buscador(),
-                SizedBox(height: 20.0,),
+                SizedBox(height: sizeP.width *0.03,),
+                _buscador(context),
+                SizedBox(height: sizeP.width *0.03,),
                 _servicios(context)
               ],
             ),
@@ -36,14 +40,15 @@ class InicioPage extends StatelessWidget {
     );
   }
 
-  Widget _buscador() {
+  Widget _buscador(BuildContext context) {
+    final sizeP = MediaQuery.of(context).size;
     return Center(
       child:ClipRRect(
         
         child: Container(
-          height: 50.0,
+          height: sizeP.width *0.1225,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20.0),
+              borderRadius: BorderRadius.circular(sizeP.width *0.049),
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
@@ -53,7 +58,7 @@ class InicioPage extends StatelessWidget {
                 ),
               ],
           ),
-          margin: EdgeInsets.symmetric(horizontal: 40.0, vertical: 30.0),
+          margin: EdgeInsets.symmetric(horizontal: sizeP.width *0.098, vertical: sizeP.width *0.0735),
           child: Center(
             child: TextField(
                 cursorColor: Colors.black,
@@ -64,16 +69,17 @@ class InicioPage extends StatelessWidget {
                   labelStyle: TextStyle(color: Color.fromRGBO(36, 48, 60, 0.5)),
                   focusColor: Colors.black,
                   hoverColor: Colors.black,
+                  hintStyle: TextStyle(fontSize:sizeP.width *0.039),
                   
                   enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
+                    borderRadius: BorderRadius.circular(sizeP.width *0.0735),
                     borderSide: BorderSide(
                       width: 1.0,
                       color: Colors.transparent,
                     ),      
                   ),  
                 hintText: '¿Qué estás buscando?',
-                prefixIcon: Icon(Icons.search, color: Colors.grey,size: 30.0,),
+                prefixIcon: Icon(Icons.search, color: Colors.grey,size: sizeP.width *0.0735,),
                 ),
               ),
           ),
@@ -83,13 +89,14 @@ class InicioPage extends StatelessWidget {
   }
 
   Widget _servicios(BuildContext context){
+    final sizeP = MediaQuery.of(context).size;
     return Column(
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             SizedBox(width: 35.0,),
-            Text('Nuestros Servicios', style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold ),),
+            Text('Nuestros Servicios', style: TextStyle(fontSize: sizeP.width *0.068, fontWeight: FontWeight.bold ),),
           ],
         ),
         Table(
@@ -113,39 +120,44 @@ class InicioPage extends StatelessWidget {
   }
 
   Widget _tarjet(BuildContext context, String img, String texto){
+    final sizeP = MediaQuery.of(context).size;
     return ClipRRect(
       child: Container(
         decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(30.0),
-                topRight: Radius.circular(30.0),
-                bottomLeft: Radius.circular(30.0)
+                topLeft: Radius.circular(sizeP.width * 0.0735),
+                topRight: Radius.circular(sizeP.width * 0.0735),
+                bottomLeft: Radius.circular(sizeP.width * 0.0735)
                 ),
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey,
-                  offset: Offset(0.0, 3.0), //(x,y)
-                  blurRadius: 3.0,
+                  offset: Offset(0.0, sizeP.width * 0.00735), //(x,y)
+                  blurRadius: sizeP.width * 0.00735,
                 ),
               ],
         ),
-        padding: EdgeInsets.only(top:20.0,left: 10.0, right: 10.0, bottom: 10.0),
-        margin: EdgeInsets.all(10.0),
+        padding: EdgeInsets.only(top:sizeP.width * 0.049,left: sizeP.width * 0.0245, right: sizeP.width * 0.0245, bottom: sizeP.width * 0.0245),
+        margin: EdgeInsets.all(sizeP.width * 0.0245),
         child: Column(
           children: <Widget>[
             Image(
               image: AssetImage('assets/img/$img'),
+              width: sizeP.width * 0.3,
+              height: sizeP.width * 0.185,
+              fit: BoxFit.contain
             ),
+            SizedBox(height: sizeP.width * 0.020,),
             MaterialButton(
-              height: 30.0,
+              height: sizeP.width * 0.068,
               onPressed: (){
                 Navigator.pushNamed(context, 'itemsServicio',arguments: texto);
               }, 
               color: Color.fromRGBO(36, 48, 60, 1.0),
               textColor: Colors.white,
-              child: Container(width:200.0, child: Center(child: Text(texto, style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.normal,),))),
-              shape: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0), borderSide: BorderSide(width: 1.0, color: Color.fromRGBO(36, 48, 60, 1.0))),
+              child: Container(width:sizeP.width * 0.6, child: Center(child: Text(texto, style: TextStyle(fontSize: sizeP.width * 0.03,fontWeight: FontWeight.normal,),))),
+              shape: OutlineInputBorder(borderRadius: BorderRadius.circular(sizeP.width * 0.049), borderSide: BorderSide(width: 1.0, color: Color.fromRGBO(36, 48, 60, 1.0))),
               elevation: 0.0,
             ),
           ],

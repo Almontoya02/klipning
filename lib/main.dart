@@ -20,6 +20,10 @@ class MyApp extends StatelessWidget {
       statusBarIconBrightness: Brightness.dark,
       statusBarBrightness: Brightness.dark
     ));
+    SystemChrome.setPreferredOrientations([ //Evita que no se rote la pantalla
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown
+    ]);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Klipning',

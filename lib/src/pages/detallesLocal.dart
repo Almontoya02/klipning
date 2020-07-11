@@ -20,6 +20,7 @@ class _InformacionNegocioState extends State<InformacionNegocio> with SingleTick
 
   @override
   Widget build(BuildContext context) {
+    final sizeP = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Color.fromRGBO(241, 238, 238, 1.0),
       body: CustomScrollView(
@@ -32,7 +33,7 @@ class _InformacionNegocioState extends State<InformacionNegocio> with SingleTick
               flexibleSpace: FlexibleSpaceBar(
                // title: Center(child: Text('holi', style:TextStyle(color:Colors.black))),
                 background: Container(
-                  padding: EdgeInsets.all(18.0),
+                  padding: EdgeInsets.only(top: sizeP.width * 0.0341,left: sizeP.width * 0.0441,right: sizeP.width * 0.0441),
                   child: Column(
                     
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -40,7 +41,7 @@ class _InformacionNegocioState extends State<InformacionNegocio> with SingleTick
                       Row(
                         children: <Widget>[
                           Icon(CupertinoIcons.location_solid, color:Color.fromRGBO(209, 141, 96, 1.0),),
-                          Text('Cra 80 # 30B-32 Medellín, Colombia',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500 ),)
+                          Container(width: sizeP.width * 0.8 , child: Text('Cra 80 # 30B-32 Medellín, Colombia',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500 ),))
                         ],
                       ),
                       Row(
@@ -68,12 +69,12 @@ class _InformacionNegocioState extends State<InformacionNegocio> with SingleTick
               pinned: true,
               title: Text('Barbería Brand'),
               textTheme: TextTheme(
-                headline6: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),
+                headline6: TextStyle(color: Colors.black, fontSize: sizeP.width * 0.0588, fontWeight: FontWeight.bold),
             
               ),
-              expandedHeight: 160.0,
+              expandedHeight: sizeP.width * 0.45,
               leading: new IconButton(
-                icon: new Icon(Icons.arrow_back, color: Colors.black, size: 30.0,),
+                icon: new Icon(Icons.arrow_back, color: Colors.black, size: sizeP.width * 0.0735,),
                 onPressed: () => Navigator.of(context).pop(),
               ), 
               actionsIconTheme: IconThemeData(
@@ -82,11 +83,11 @@ class _InformacionNegocioState extends State<InformacionNegocio> with SingleTick
               ),
               actions: <Widget>[
                 IconButton(
-                  icon: Icon(IconData(0xF37C, fontFamily: CupertinoIcons.iconFont, fontPackage: CupertinoIcons.iconFontPackage), color: Color.fromRGBO(209, 141, 96, 1.0),size: 30.0,), 
+                  icon: Icon(IconData(0xF37C, fontFamily: CupertinoIcons.iconFont, fontPackage: CupertinoIcons.iconFontPackage), color: Color.fromRGBO(209, 141, 96, 1.0),size: sizeP.width * 0.0735,), 
                   onPressed: (){}
                 ),
                 IconButton(
-                  icon: Icon(CupertinoIcons.heart,size: 30.0,color:Color.fromRGBO(209, 141, 96, 1.0)), 
+                  icon: Icon(CupertinoIcons.heart,size: sizeP.width * 0.0735,color:Color.fromRGBO(209, 141, 96, 1.0)), 
                   onPressed: (){}
                 )
               ],
@@ -95,19 +96,19 @@ class _InformacionNegocioState extends State<InformacionNegocio> with SingleTick
               unselectedLabelColor:Color.fromRGBO(36, 48, 60, 1.0),
               indicatorSize: TabBarIndicatorSize.tab,
               indicator: new BubbleTabIndicator(
-                  indicatorHeight: 25.0,
+                  indicatorHeight: sizeP.width * 0.0735,
                   indicatorColor: Color.fromRGBO(36, 48, 60, 1.0),
                   tabBarIndicatorSize: TabBarIndicatorSize.tab,
                 ),
               tabs: <Widget>[
                 Tab(
-                  child: Text('Servicios', style: TextStyle(fontSize: 15,  fontWeight: FontWeight.w500),),
+                  child: Text('Servicios', style: TextStyle(fontSize: sizeP.width * 0.03675,  fontWeight: FontWeight.w500),),
                 ),
                 Tab(
-                  child: Text('Galería', style: TextStyle(fontSize: 15,  fontWeight: FontWeight.w500),),
+                  child: Text('Galería', style: TextStyle(fontSize: sizeP.width * 0.03675,  fontWeight: FontWeight.w500),),
                 ),
                 Tab(
-                  child: Text('Opiniones', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),),
+                  child: Text('Opiniones', style: TextStyle(fontSize: sizeP.width * 0.03675, fontWeight: FontWeight.w500),),
                 ),
               ],
               controller: controllerTab,
@@ -160,41 +161,42 @@ class _InformacionNegocioState extends State<InformacionNegocio> with SingleTick
   }
 
   Widget _tarjetService(String nombre,String precio, String icono) {
+    final sizeP = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+      margin: EdgeInsets.symmetric(horizontal: sizeP.width * 0.0245, vertical: 0.0),
       child: Card(
-        shape: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0), borderSide: BorderSide(width: 1.0, color: Colors.transparent)),
+        shape: OutlineInputBorder(borderRadius: BorderRadius.circular(sizeP.width * 0.049), borderSide: BorderSide(width: 1.0, color: Colors.transparent)),
         elevation: 20.0,
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+          padding: EdgeInsets.symmetric(horizontal: sizeP.width * 0.0245, vertical: sizeP.width * 0.0245),
           child: Container(
             child: Row(
               children: <Widget>[
                 CircleAvatar(
                   backgroundColor: Color.fromRGBO(247, 244, 245, 1.0),
-                  radius: 40.0,
+                  radius: sizeP.width * 0.098,
                   child: ClipRRect(
                     child: Image.asset('assets/icons/$icono.png'),
                   ),
                   
                 ),
-                SizedBox(width: 10.0,),
+                SizedBox(width: sizeP.width * 0.0245,),
                 Container(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Container(
-                        width: 250.0,
+                        width: sizeP.width * 0.6125,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text(nombre, style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),),
+                            Text(nombre, style: TextStyle(fontSize: sizeP.width * 0.0343, fontWeight: FontWeight.bold),),
                             SizedBox(),
                             Row(
                               children: <Widget>[
-                                Text('\$$precio',style: TextStyle(fontSize: 24.0,fontWeight: FontWeight.w500),),
-                                Text('mil',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500))
+                                Text('\$$precio',style: TextStyle(fontSize: sizeP.width * 0.0588,fontWeight: FontWeight.w500),),
+                                Text('mil',style: TextStyle(fontSize: sizeP.width * 0.0294,fontWeight: FontWeight.w500))
                               ],
                             )
                             
@@ -202,27 +204,27 @@ class _InformacionNegocioState extends State<InformacionNegocio> with SingleTick
                         ),
                       ),
                       Container(
-                        width: 250.0,
+                        width: sizeP.width * 0.6125,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Container(
                               child: Row(
                                 children: <Widget>[
-                                  Text('El corte de pelo masculino,\nadicionalmente disfruta\nintensamente de un arreglo de \nbarba con nuestros barberos.',style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w500),),
+                                  Container(width: sizeP.width * 0.365,child: Text('El corte de pelo masculino, adicionalmente disfruta intensamente de un arreglo de barba con nuestros barberos.',style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w500),)),
                                 ],
                               ),
                             ),
                             SizedBox(),
                             MaterialButton(
-                              height: 27.0,
+                              height: sizeP.width * 0.06615,
                               onPressed: (){
                                 Navigator.pushNamed(context, 'informacionNegocio');
                               }, 
                               color: Color.fromRGBO(36, 48, 60, 1.0),
                               textColor: Colors.white,
-                              child: Container( child: Center(child: Text('Solicitar', style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.normal),))),
-                              shape: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0), borderSide: BorderSide(width: 1.0, color: Color.fromRGBO(36, 48, 60, 1.0))),
+                              child: Container( child: Center(child: Text('Solicitar', style: TextStyle(fontSize: sizeP.width * 0.0294,fontWeight: FontWeight.normal),))),
+                              shape: OutlineInputBorder(borderRadius: BorderRadius.circular(sizeP.width * 0.049), borderSide: BorderSide(width: 1.0, color: Color.fromRGBO(36, 48, 60, 1.0))),
                               
                             ),
                             
@@ -267,17 +269,21 @@ class _InformacionNegocioState extends State<InformacionNegocio> with SingleTick
   }
 
   Widget _image(String uri) {
-    return Container(
-      margin: EdgeInsets.all(7.0),
-      child: ClipRRect(
-          
-          borderRadius: BorderRadius.all(Radius.circular(20.0)),
-          child: FadeInImage(
-          fit: BoxFit.cover,
-          width: 150.0,
-          height: 150.0,
-          placeholder: AssetImage('assets/loading.gif'), 
-          image: NetworkImage(uri)
+    final sizeP = MediaQuery.of(context).size;
+    return GestureDetector(
+        onTap: () => _showImageDialog(context,uri),
+        child: Container(
+        margin: EdgeInsets.all(sizeP.width * 0.01715),
+        child: ClipRRect(
+            
+            borderRadius: BorderRadius.all(Radius.circular(sizeP.width * 0.049)),
+            child: FadeInImage(
+            fit: BoxFit.cover,
+            width: sizeP.width * 0.3675,
+            height: sizeP.width * 0.3675,
+            placeholder: AssetImage('assets/loading.gif'),  
+            image: NetworkImage(uri)
+          ),
         ),
       ),
     );
@@ -300,30 +306,33 @@ class _InformacionNegocioState extends State<InformacionNegocio> with SingleTick
   }
   
   Widget _comentario() {
+      final sizeP = MediaQuery.of(context).size;
 
       return Container(
-        width: 200.0,
-        margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+        width: sizeP.width * 0.49,
+        margin: EdgeInsets.symmetric(horizontal: sizeP.width * 0.0245, vertical: 0.0),
         child: Card(
-          shape: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0), borderSide: BorderSide(width: 1.0, color: Colors.transparent)),
+          shape: OutlineInputBorder(borderRadius: BorderRadius.circular(sizeP.width * 0.049), borderSide: BorderSide(width: 1.0, color: Colors.transparent)),
           elevation: 1.0,
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            padding: EdgeInsets.symmetric(horizontal: sizeP.width * 0.0245, vertical: sizeP.width * 0.0245),
             child: Container(
+
               child: Row(
                 children: <Widget>[
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(40.0),
+                    borderRadius: BorderRadius.circular(sizeP.width * 0.098),
                     child: FadeInImage(
                       fit: BoxFit.cover,
-                      width: 80,  
-                      height: 80,
+                      width: sizeP.width * 0.196,  
+                      height: sizeP.width * 0.196,
                       placeholder: AssetImage('assets/loading.gif'), 
                       image: NetworkImage('https://scontent.feoh3-1.fna.fbcdn.net/v/t1.0-9/59470919_2066916543356491_1962542631112146944_o.jpg?_nc_cat=101&_nc_sid=09cbfe&_nc_eui2=AeE83sMcwBorf2_rrC-juZa_G1R9T0eKCSEbVH1PR4oJIWIUsRb541LBNBcEtNJbbkv-YscBKj05TydFHsKiPbQv&_nc_oc=AQnMMIbfACb3q0V3Iv5j5rtnx2KAOALuc-joUOF-hGKWNB3Rztpmm43NIJfleZoxKmw&_nc_ht=scontent.feoh3-1.fna&oh=188f13730b9bd7ea950d263a970b3714&oe=5F1CA469'),
                       ),  
                   ),
-                  SizedBox(width: 10.0,),
+                  SizedBox(width: sizeP.width * 0.0245,),
                   Container(
+                    width: sizeP.width * 0.657,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -333,16 +342,16 @@ class _InformacionNegocioState extends State<InformacionNegocio> with SingleTick
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: <Widget>[
-                              SizedBox(width: 10.0,),
-                              Text('Pepito Perez', style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),),
-                              SizedBox(width: 45.0,),
+                              SizedBox(width: sizeP.width * 0.0245,),
+                              Text('Pepito Perez', style: TextStyle(fontSize: sizeP.width * 0.0443, fontWeight: FontWeight.bold),),
+                              SizedBox(width: sizeP.width * 0.11025,),
                               Row(
                                 children: <Widget>[
-                                  Icon(Icons.star,color:  Color.fromRGBO(209, 141, 96, 1.0), size: 20.0,),
-                                  Icon(Icons.star,color:  Color.fromRGBO(209, 141, 96, 1.0), size: 20.0,),
-                                  Icon(Icons.star,color:  Color.fromRGBO(209, 141, 96, 1.0), size: 20.0,),
-                                  Icon(Icons.star,color:  Color.fromRGBO(209, 141, 96, 1.0), size: 20.0,),
-                                  Icon(Icons.star_half,color:  Color.fromRGBO(209, 141, 96, 1.0), size: 20.0,)
+                                  Icon(Icons.star,color:  Color.fromRGBO(209, 141, 96, 1.0), size: sizeP.width * 0.049,),
+                                  Icon(Icons.star,color:  Color.fromRGBO(209, 141, 96, 1.0), size: sizeP.width * 0.049,),
+                                  Icon(Icons.star,color:  Color.fromRGBO(209, 141, 96, 1.0), size: sizeP.width * 0.049,),
+                                  Icon(Icons.star,color:  Color.fromRGBO(209, 141, 96, 1.0), size: sizeP.width * 0.049,),
+                                  Icon(Icons.star_half,color:  Color.fromRGBO(209, 141, 96, 1.0), size: sizeP.width * 0.049,)
                                 ],
                               )
                             ],
@@ -357,7 +366,7 @@ class _InformacionNegocioState extends State<InformacionNegocio> with SingleTick
                             ],
                           ),
                         ),
-                        Container(width:250,child: DescriptionTextWidget(text:description))
+                        Container(width:sizeP.width * 0.6125,child: DescriptionTextWidget(text:description))
                     ],
                     ),
                   )
@@ -366,6 +375,39 @@ class _InformacionNegocioState extends State<InformacionNegocio> with SingleTick
             ),
           ),
         ),
+    );
+  }
+
+  _showImageDialog(BuildContext context, String uri) {
+    final sizeP = MediaQuery.of(context).size;
+    showDialog(
+      context: context,
+      builder: (_) => Dialog(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child:Container(
+                width: double.infinity,
+                child: FadeInImage(
+                        fit: BoxFit.contain,
+                        placeholder: AssetImage('assets/loading.gif'), 
+                        image: NetworkImage(uri),
+                      ),
+                
+              )
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                IconButton(icon: Icon(Icons.close, size: sizeP.width * 0.098,color: Colors.grey,), onPressed: ()=>Navigator.pop(context))
+              ],
+            ),
+            SizedBox(height: sizeP.width * 0.098,)
+          ],
+        ),
+      )
     );
   }
   
@@ -404,9 +446,9 @@ class _DescriptionTextWidgetState extends State<DescriptionTextWidget> {
 
   @override
   Widget build(BuildContext context) {
-    
+    final sizeP = MediaQuery.of(context).size;
     return Container(
-      padding: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+      padding: new EdgeInsets.symmetric(horizontal: sizeP.width * 0.0245, vertical: sizeP.width * 0.0245),
       child: segundaMitad.isEmpty
           ? new Text(primeraMitad)
           : new Column(

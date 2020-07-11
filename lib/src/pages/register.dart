@@ -14,6 +14,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    final sizeP = MediaQuery.of(context).size;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -25,7 +26,7 @@ class _RegisterPageState extends State<RegisterPage> {
           opacity: 1.0
         ),
         leading: new IconButton(
-          icon: new Icon(Icons.arrow_back, color: Colors.black, size: 30.0,),
+          icon: new Icon(Icons.arrow_back, color: Colors.black, size: sizeP.width * 0.0735,),
           onPressed: () => Navigator.of(context).pop(),
         ), 
       ),
@@ -39,7 +40,7 @@ class _RegisterPageState extends State<RegisterPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 _logo(),
-                SizedBox(height: 40.0,),
+                SizedBox(height: sizeP.width * 0.048,),
                 _writes(),
                 _form(),
                 _buttons()
@@ -52,20 +53,22 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Widget _logo() {
-
+    final sizeP = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.only(top:5.0),
+      margin: EdgeInsets.only(top:sizeP.width * 0.01225),
       child: Column(
         children: <Widget>[
           Image(
-            image: AssetImage('assets/logo.png')
+            image: AssetImage('assets/logo.png'),
+            width: sizeP.width * 0.3675,
+            height: sizeP.width * 0.3675,
           ),
-          SizedBox(height: 10.0,),
+          SizedBox(height: sizeP.width * 0.0245,),
           Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('KLIP', style: TextStyle(fontSize: 36.0,fontWeight: FontWeight.bold),),
-            Text('NING', style: TextStyle(fontSize: 36.0,fontWeight: FontWeight.bold, color: mainColor,)),
+            Text('KLIP', style: TextStyle(fontSize: sizeP.width * 0.0882,fontWeight: FontWeight.bold),),
+            Text('NING', style: TextStyle(fontSize: sizeP.width * 0.0882,fontWeight: FontWeight.bold, color: mainColor,)),
           ],
         ),
         ],
@@ -75,21 +78,21 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Widget _writes() {
-    
+    final sizeP = MediaQuery.of(context).size;
     return Column(
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                SizedBox(width: 40.0,),
-                Text('Comencemos', style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),),
+                SizedBox(width: sizeP.width * 0.098,),
+                Text('Comencemos', style: TextStyle(fontSize: sizeP.width * 0.098, fontWeight: FontWeight.bold),),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                SizedBox(width: 40.0,),
-                Text('Crea una cuenta para comenzar', style: TextStyle(fontSize: 14.0, color: Color.fromRGBO(36, 48, 60, 0.5))),
+                SizedBox(width: sizeP.width * 0.098,),
+                Text('Crea una cuenta para comenzar', style: TextStyle(fontSize: sizeP.width * 0.0343, color: Color.fromRGBO(36, 48, 60, 0.5))),
               ],
             ),
             
@@ -99,9 +102,9 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Widget _buttons() {
-    
+    final sizeP = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.only(bottom:30.0),
+      margin: EdgeInsets.only(bottom:sizeP.width * 0.0735),
       child: Column(
         children: <Widget>[
 
@@ -109,8 +112,8 @@ class _RegisterPageState extends State<RegisterPage> {
               onPressed: (){}, 
               color: Color.fromRGBO(36, 48, 60, 1.0),
               textColor: Colors.white,
-              child: Container(padding:EdgeInsets.symmetric(horizontal: 35.0, vertical: 15.0),child: Text('Registrarse', style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),)),
-              shape: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0), borderSide: BorderSide(width: 3.0, color: Color.fromRGBO(36, 48, 60, 1.0))),
+              child: Container(padding:EdgeInsets.symmetric(horizontal: sizeP.width * 0.08575, vertical: sizeP.width * 0.03675),child: Text('Registrarse', style: TextStyle(fontSize: sizeP.width * 0.03675,fontWeight: FontWeight.bold),)),
+              shape: OutlineInputBorder(borderRadius: BorderRadius.circular(sizeP.width * 0.0245), borderSide: BorderSide(width: sizeP.width * 0.0, color: Color.fromRGBO(36, 48, 60, 1.0))),
               elevation: 0.0,
               
           ),
@@ -123,9 +126,9 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Widget _form() {
-
+    final sizeP = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.all(30.0),
+      padding: EdgeInsets.all(sizeP.width * 0.0735),
       child: Column(
         children: <Widget>[
         TextField(
@@ -139,17 +142,17 @@ class _RegisterPageState extends State<RegisterPage> {
             focusColor: Colors.black,
             hoverColor: Colors.black,
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30.0),
+              borderRadius: BorderRadius.circular(sizeP.width * 0.0735),
               borderSide: BorderSide(
-                width: 3.0,
+                width:sizeP.width * 0.00735,
                 color: Colors.black,
               ),     
             ),  
           labelText: 'Nombres:',
-          prefixIcon: Icon(Icons.person_outline, color: mainColor,size: 30.0,),
+          prefixIcon: Icon(Icons.person_outline, color: mainColor,size: sizeP.width * 0.0735,),
           ),
         ),
-        SizedBox(height: 15.0,),
+        SizedBox(height: sizeP.width * 0.03675,),
                 TextField(
           style:_textStyle,
           cursorColor: Colors.black,
@@ -161,17 +164,17 @@ class _RegisterPageState extends State<RegisterPage> {
             focusColor: Colors.black,
             hoverColor: Colors.black,
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30.0),
+              borderRadius: BorderRadius.circular(sizeP.width * 0.0735),
               borderSide: BorderSide(
-                width: 3.0,
+                width: sizeP.width * 0.00735,
                 color: Colors.black,
               ),     
             ),  
           labelText: 'Apellidos:',
-          prefixIcon: Icon(Icons.person_pin, color: mainColor,size: 30.0,),
+          prefixIcon: Icon(Icons.person_pin, color: mainColor,size: sizeP.width * 0.0735,),
           ),
         ),
-        SizedBox(height: 15.0,),
+        SizedBox(height: sizeP.width * 0.03675,),
                 TextField(
           style:_textStyle,
           cursorColor: Colors.black,
@@ -183,17 +186,17 @@ class _RegisterPageState extends State<RegisterPage> {
             focusColor: Colors.black,
             hoverColor: Colors.black,
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30.0),
+              borderRadius: BorderRadius.circular(sizeP.width * 0.0735),
               borderSide: BorderSide(
-                width: 3.0,
+                width: sizeP.width * 0.00735,
                 color: Colors.black,
               ),     
             ),  
           labelText: 'Celular:',
-          prefixIcon: Icon(Icons.phone_android, color: mainColor,size: 30.0,),
+          prefixIcon: Icon(Icons.phone_android, color: mainColor,size: sizeP.width * 0.0735,),
           ),
         ),
-        SizedBox(height: 15.0,),
+        SizedBox(height: sizeP.width * 0.03675,),
           TextField(
           style:_textStyle,
           cursorColor: Colors.black,
@@ -207,15 +210,15 @@ class _RegisterPageState extends State<RegisterPage> {
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30.0),
               borderSide: BorderSide(
-                width: 3.0,
+                width: sizeP.width * 0.00735,
                 color: Colors.black,
               ),     
             ),  
           labelText: 'Correo:',
-          prefixIcon: Icon(Icons.email, color: mainColor,size: 30.0,),
+          prefixIcon: Icon(Icons.email, color: mainColor,size: sizeP.width * 0.0735,),
           ),
         ),
-        SizedBox(height: 15.0,),
+        SizedBox(height: sizeP.width * 0.03675,),
         TextField(
           style:_textStyle,
           obscureText: _obscureText,
@@ -230,7 +233,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 borderRadius: BorderRadius.circular(30.0),
                 borderSide: BorderSide(
                   color: Colors.black,
-                  width: 3.0
+                  width: sizeP.width * 0.00735
                 ),
               ),
           labelText: 'Contraseña:',
@@ -245,10 +248,10 @@ class _RegisterPageState extends State<RegisterPage> {
                 _obscureText ? Icons.visibility : Icons.visibility_off,
                 color: Colors.black,),
               ),
-            prefixIcon: Icon(Icons.lock_open, color: mainColor, size: 35.0,),
+            prefixIcon: Icon(Icons.lock_open, color: mainColor, size: sizeP.width * 0.08575,),
           ),
         ),
-        SizedBox(height: 15.0,),
+        SizedBox(height: sizeP.width * 0.03675,),
         TextField(
           style:_textStyle,
           obscureText: _obscureText,
@@ -260,10 +263,10 @@ class _RegisterPageState extends State<RegisterPage> {
           hoverColor: Colors.black,
           focusColor: Colors.black,
           enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30.0),
+                borderRadius: BorderRadius.circular(sizeP.width * 0.0735),
                 borderSide: BorderSide(
                   color: Colors.black,
-                  width: 3.0
+                  width: sizeP.width * 0.00735
                 ),
               ),
           labelText: 'Confirmar contraseña:',
@@ -278,7 +281,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 _obscureText ? Icons.visibility : Icons.visibility_off,
                 color: Colors.black,),
               ),
-            prefixIcon: Icon(Icons.lock_outline, color: mainColor, size: 35.0,),
+            prefixIcon: Icon(Icons.lock_outline, color: mainColor, size: sizeP.width * 0.08575,),
           ),
         ),
         
